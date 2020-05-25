@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { Collection, Item } from 'postman-collection';
+import { Collection } from 'postman-collection';
 import * as newman from 'newman';
 import { NewmanRunSummary } from "newman";
 
 var items = [
-    new Item({
+    {
         name: "GET-employees",
-        events: [
+        event: [
             {
                 listen: "test",
                 script: {
@@ -23,10 +23,10 @@ var items = [
         ],
         request: {
             method: "GET",
-            header: [],
+            header: new Array(),
             url: "http://dummy.restapiexample.com/api/v1/employees",
         },
-    })
+    }
 ]
 
 var myCollection = new Collection({
